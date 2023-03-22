@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Comic sans ms", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  font-size: 16px;
+}
+
+.error {
+  font-size: 14px;
+  font-weight: 600;
+  color: red;
+}
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #fafafa;
+}
+
+.button {
+  width: fit-content;
+  outline: none;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 5px;
+  color: white;
+  background-color: #55acee;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.button:active {
+  transform: translateY(1.5px);
+}
+
+.icon {
+  width: fit-content;
+  height: fit-content;
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #fafafa;
+  transition: 200ms;
+  cursor: pointer;
+}
+
+.icon:hover {
+  background-color: #f1f1f1;
+}
+
+.icon svg,
+.icon img {
+  height: 16px;
+  width: 16px;
+}
