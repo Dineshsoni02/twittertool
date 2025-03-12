@@ -13,6 +13,8 @@ import { toast } from "react-hot-toast";
 
 import TwitterCard from "./../twittercard/TwitterCard";
 
+const githubToken = process.env.REACT_APP_GITHUB_TOKEN;
+
 const TwitterPage = () => {
   const [inputPrompt, setInputPrompt] = useState("");
   const [generating, setGenerating] = useState({
@@ -58,7 +60,7 @@ const TwitterPage = () => {
     try {
       setPrompts([]);
       setGenerating((prev) => ({ ...prev, prompt: true }));
-      const res = await generateTweets(inputPrompt.trim());
+      const res = await generateTweets(inputPrompt.trim(), githubToken);
       setGenerating((prev) => ({ ...prev, prompt: false }));
 
       let ans = Array.isArray(res.choices)
@@ -80,7 +82,7 @@ const TwitterPage = () => {
     const lastTweet = tempThread.pop().value;
 
     setGenerating((prev) => ({ ...prev, thread: true }));
-    const res = await generateThreads(lastTweet);
+    const res = await generateThreads(lastTweet, githubToken);
     setGenerating((prev) => ({ ...prev, thread: false }));
 
     if (!res) return;
@@ -102,7 +104,7 @@ const TwitterPage = () => {
     const lastMsg = threads[0].value;
     if (!lastMsg) return;
     setGenerating((prev) => ({ ...prev, image: true }));
-    const res1 = await generateImageForThread(lastMsg);
+    const res1 = await generateImageForThread(lastMsg, githubToken);
     const res2 = await generateImage(res1);
     setGenerating((prev) => ({ ...prev, image: false }));
     setImageUrl({ url: res2 });
