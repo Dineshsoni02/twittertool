@@ -146,3 +146,4 @@ export const generateImage = async (title, token) => {
   }
 };
 
+  
